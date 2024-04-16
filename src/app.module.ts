@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TextAnalyzerModule } from './text-analyzer/text-analyzer.module';
+import { TextAnalyzerController } from './text-analyzer/text-analyzer.controller';
+import { TextAnalyzerService } from './text-analyzer/text-analyzer.service';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [TextAnalyzerModule],
+  controllers: [TextAnalyzerController],
+  providers: [TextAnalyzerService],
 })
 export class AppModule {}
