@@ -12,6 +12,10 @@ describe('TextAnalyzerService', () => {
     service = module.get<TextAnalyzerService>(TextAnalyzerService);
   });
 
+  it('should return the number of words', () => {
+    expect(service.countWords());
+  });
+
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
