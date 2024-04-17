@@ -17,4 +17,18 @@ export class TextAnalyzerController {
       return { success: false, message: error.message };
     }
   }
+
+  @Get('characters')
+  async countCharacters() {
+    try {
+      const results = await this.textAnalyserService.countCharacters();
+      return {
+        success: true,
+        status: HttpStatus.OK,
+        results: `Total ${results} Characters`,
+      };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  }
 }
