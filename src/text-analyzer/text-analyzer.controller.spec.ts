@@ -33,6 +33,10 @@ describe('TextAnalyzerController', () => {
     jest.spyOn(service, 'countParagraphs');
     expect(controller.countParagraphs());
   });
+  it('return the longest words', () => {
+    jest.spyOn(service, 'findLongestWordsInParagraphs');
+    expect(controller.findLongestWordsInParagraphs());
+  });
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });

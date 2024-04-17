@@ -25,6 +25,9 @@ describe('TextAnalyzerService', () => {
   it('return the total number of paragraphs', () => {
     expect(service.countParagraphs());
   });
+  it('return the longest words', () => {
+    expect(service.findLongestWordsInParagraphs());
+  });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
