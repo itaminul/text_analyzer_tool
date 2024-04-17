@@ -22,6 +22,9 @@ describe('TextAnalyzerService', () => {
   it('return the total number of sentences', () => {
     expect(service.countSentences());
   });
+  it('return the total number of paragraphs', () => {
+    expect(service.countParagraphs());
+  });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
