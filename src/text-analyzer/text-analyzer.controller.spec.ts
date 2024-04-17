@@ -29,6 +29,10 @@ describe('TextAnalyzerController', () => {
     jest.spyOn(service, 'countSentences');
     expect(controller.countSentences());
   });
+  it('return the total number of paragraphs', () => {
+    jest.spyOn(service, 'countParagraphs');
+    expect(controller.countParagraphs());
+  });
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
