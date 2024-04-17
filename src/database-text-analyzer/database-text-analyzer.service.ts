@@ -22,6 +22,24 @@ export class DatabaseTextAnalyzerService {
     return totalWords;
   }
 
+  async getTotalCharacter(): Promise<number> {
+    const sampleWords = await this.prismaService.sample.findMany({
+      where: {
+        activeStatus: true,
+      },
+      select: {
+        sampleText: true,
+      },
+    });
+    let totalCharacters = 0;
+    sampleWords.forEach((obj) => {
+      if (obj.sampleText) {
+        totalCharacters += obj.sampleText.length;
+      }
+    });
+    return totalCharacters;
+  }
+
   private countWords(text: string): number {
     return text.split(/\s+/).filter((word) => word !== '').length;
   }
