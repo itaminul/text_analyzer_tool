@@ -19,6 +19,9 @@ describe('TextAnalyzerService', () => {
   it('return the total number of characters', () => {
     expect(service.countCharacters());
   });
+  it('return the total number of sentences', () => {
+    expect(service.countSentences());
+  });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
