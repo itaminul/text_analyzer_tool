@@ -44,4 +44,31 @@ export class TextAnalyzerController {
       return { success: false, message: error.message };
     }
   }
+  @Get('paragraph')
+  async countParagraphs() {
+    try {
+      const results = await this.textAnalyserService.countParagraphs();
+      return {
+        success: true,
+        status: HttpStatus.OK,
+        results: `Total ${results} Paragraph`,
+      };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  }
+  @Get('long-words')
+  async findLongestWordsInParagraphs() {
+    try {
+      const results =
+        await this.textAnalyserService.findLongestWordsInParagraphs();
+      return {
+        success: true,
+        status: HttpStatus.OK,
+        results: `${results} is the long words in the paragraphs`,
+      };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  }
 }

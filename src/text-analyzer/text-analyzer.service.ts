@@ -47,4 +47,39 @@ export class TextAnalyzerService {
       throw new Error(`Error reading file: ${error.message}`);
     }
   }
+
+  async countParagraphs() {
+    try {
+      const text = await fs.readFile(this.sampleFilePath, 'utf-8');
+      const results = text.split(/\n\s*\n/).length;
+      return results;
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        throw new NotFoundException('Sample file not found.');
+      }
+      throw new Error(`Error reading file: ${error.message}`);
+    }
+  }
+
+  async findLongestWordsInParagraphs() {
+    try {
+      const text = await fs.readFile(this.sampleFilePath, 'utf-8');
+      const paragraphs = text.split(/\n\s*\n/);
+      const results = paragraphs.map((paragraph) =>
+        paragraph
+          .split(/\s+/)
+          .reduce(
+            (longest, current) =>
+              current.length > longest.length ? current : longest,
+            '',
+          ),
+      );
+      return results;
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        throw new NotFoundException('Sample file not found.');
+      }
+      throw new Error(`Error reading file: ${error.message}`);
+    }
+  }
 }
