@@ -16,9 +16,14 @@ describe('TextAnalyzerController', () => {
     service = module.get<TextAnalyzerService>(TextAnalyzerService);
   });
 
-  it('should return the number of words', () => {
-    jest.spyOn(service, 'countWords').mockImplementation(async () => 13);
+  it('return the total number of words', () => {
+    jest.spyOn(service, 'countWords');
     expect(controller.countWords());
+  });
+
+  it('return the total number of characters', () => {
+    jest.spyOn(service, 'countCharacters');
+    expect(controller.countCharacters());
   });
   it('should be defined', () => {
     expect(controller).toBeDefined();

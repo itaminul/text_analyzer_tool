@@ -12,8 +12,12 @@ describe('TextAnalyzerService', () => {
     service = module.get<TextAnalyzerService>(TextAnalyzerService);
   });
 
-  it('should return the number of words', () => {
+  it('return the total number of words', () => {
     expect(service.countWords());
+  });
+
+  it('return the total number of characters', () => {
+    expect(service.countCharacters());
   });
 
   it('should be defined', () => {
