@@ -35,4 +35,16 @@ export class TextAnalyzerService {
       throw new Error(`Error reading file: ${error.message}`);
     }
   }
+  async countSentences() {
+    try {
+      const text = await fs.readFile(this.sampleFilePath, 'utf-8');
+      const results = text.split(/[.!?]/).length - 1;
+      return results;
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        throw new NotFoundException('Sample file not found.');
+      }
+      throw new Error(`Error reading file: ${error.message}`);
+    }
+  }
 }
