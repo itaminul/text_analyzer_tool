@@ -7,6 +7,7 @@ describe('TextAnalyzerService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [TextAnalyzerService],
+      
     }).compile();
 
     service = module.get<TextAnalyzerService>(TextAnalyzerService);
