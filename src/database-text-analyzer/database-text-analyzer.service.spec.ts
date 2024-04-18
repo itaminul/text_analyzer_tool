@@ -1,9 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DatabaseTextAnalyzerService } from './database-text-analyzer.service';
 import { PrismaService } from '../database/prisma/prisma.service';
-import { async } from 'rxjs';
 
-// Define a mock PrismaService
 class MockPrismaService {
   sample = {
     findMany: jest.fn(),
@@ -41,9 +39,16 @@ describe('YourService', () => {
   });
 
   it('should return the total number of character', async () => {
-    const sampleData = [{ sampleText: 'ddd' }];
+    const sampleData = [{ sampleText: 'sampleText' }];
     prismaServiceMock.sample.findMany.mockResolvedValue(sampleData);
     const result = await service.getTotalCharacter();
     expect(result).toEqual(3);
+  });
+
+  it('should return the total number of paragraph', async () => {
+    const sampleData = [{ sampleText: 'sampleText' }];
+    prismaServiceMock.sample.findMany.mockResolvedValue(sampleData);
+    const result = await service.getTotalSentences();
+    expect(result);
   });
 });
