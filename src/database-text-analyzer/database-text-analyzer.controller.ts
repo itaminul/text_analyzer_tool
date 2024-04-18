@@ -62,4 +62,18 @@ export class DatabaseTextAnalyzerController {
       return { success: false, message: error.message };
     }
   }
+  @Get('database-get-longest-words')
+  async getFindLongestwordsInParagraph() {
+    try {
+      const results =
+        await this.databaseTextAnalyzerService.getFindLongestwordsInParagraph();
+      return {
+        success: true,
+        status: HttpStatus.OK,
+        results: results,
+      };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  }
 }
