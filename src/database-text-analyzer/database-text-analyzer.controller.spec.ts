@@ -23,7 +23,10 @@ describe('DatabaseTextAnalyzerController', () => {
       DatabaseTextAnalyzerService,
     );
   });
-
+  it('return the total number of words', () => {
+    jest.spyOn(service, 'getTotalWords');
+    expect(controller.getTotalWords());
+  });
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
