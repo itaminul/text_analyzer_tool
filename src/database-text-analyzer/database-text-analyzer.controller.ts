@@ -37,7 +37,22 @@ export class DatabaseTextAnalyzerController {
   @Get('database-get-total-sentances')
   async getTotalSentences() {
     try {
-      const results = await this.databaseTextAnalyzerService.getTotalSentences();
+      const results =
+        await this.databaseTextAnalyzerService.getTotalSentences();
+      return {
+        success: true,
+        status: HttpStatus.OK,
+        results: results,
+      };
+    } catch (error) {
+      return { success: false, message: error.message };
+    }
+  }
+  @Get('database-get-total-paragraph')
+  async getTotalParagraph() {
+    try {
+      const results =
+        await this.databaseTextAnalyzerService.getTotalParagraph();
       return {
         success: true,
         status: HttpStatus.OK,

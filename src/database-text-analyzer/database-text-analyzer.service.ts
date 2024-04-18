@@ -53,6 +53,25 @@ export class DatabaseTextAnalyzerService {
     });
     return totalSentences;
   }
+
+  async getTotalParagraph(): Promise<number> {
+    const paragraphs = await this.prismaService.sample.findMany({
+      where: {
+        activeStatus: true,
+      },
+      select: {
+        sampleText: true,
+      },
+    });
+    let totalParagraphs = 0;
+    paragraphs.forEach((paragraph) => {
+      const paragraphCount = paragraph.sampleText.split(/\n\s*\n/).length;
+      totalParagraphs += paragraphCount;
+    });
+
+    return totalParagraphs;
+  }
+
   private countWords(text: string): number {
     return text.split(/\s+/).filter((word) => word !== '').length;
   }
