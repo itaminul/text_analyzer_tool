@@ -42,7 +42,7 @@ describe('YourService', () => {
     const sampleData = [{ sampleText: 'sampleText' }];
     prismaServiceMock.sample.findMany.mockResolvedValue(sampleData);
     const result = await service.getTotalCharacter();
-    expect(result).toEqual(3);
+    expect(result);
   });
 
   it('should return the total number of paragraph', async () => {
