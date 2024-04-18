@@ -6,10 +6,11 @@ import { DatabaseTextAnalyzerModule } from './database-text-analyzer/database-te
 import { DatabaseTextAnalyzerController } from './database-text-analyzer/database-text-analyzer.controller';
 import { DatabaseTextAnalyzerService } from './database-text-analyzer/database-text-analyzer.service';
 import { PrismaModule } from './database/prisma/prisma.module';
+import { JsonInsertService } from './scripts/json-insert.service';
 
 @Module({
   imports: [PrismaModule, TextAnalyzerModule, DatabaseTextAnalyzerModule],
   controllers: [TextAnalyzerController, DatabaseTextAnalyzerController],
-  providers: [TextAnalyzerService, DatabaseTextAnalyzerService],
+  providers: [TextAnalyzerService, DatabaseTextAnalyzerService, JsonInsertService],
 })
 export class AppModule {}
