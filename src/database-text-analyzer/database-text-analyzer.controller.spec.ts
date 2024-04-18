@@ -35,6 +35,10 @@ describe('DatabaseTextAnalyzerController', () => {
     jest.spyOn(service, 'getTotalSentences');
     expect(controller.getTotalSentences());
   });
+    it('return the total number of get total paragraph', () => {
+      jest.spyOn(service, 'getTotalParagraph');
+      expect(controller.getTotalParagraph());
+    });
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });

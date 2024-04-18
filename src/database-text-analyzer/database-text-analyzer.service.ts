@@ -72,6 +72,29 @@ export class DatabaseTextAnalyzerService {
     return totalParagraphs;
   }
 
+  async getFindLongestwordsInParagraph() {
+    const sampleWords = await this.prismaService.sample.findMany({
+      where: {
+        activeStatus: true,
+      },
+      select: {
+        sampleText: true,
+      },
+    });
+    const longestWords: string[] = [];
+    sampleWords.forEach((paragraph) => {
+      const words = paragraph.sampleText.split(/\s+/);
+      let longestWord = '';
+      words.forEach((word) => {
+        if (word.length > longestWord.length) {
+          longestWord = word;
+        }
+      });
+      longestWords.push(longestWord);
+    });
+    return longestWords;
+  }
+
   private countWords(text: string): number {
     return text.split(/\s+/).filter((word) => word !== '').length;
   }
