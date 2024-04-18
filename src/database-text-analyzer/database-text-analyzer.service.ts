@@ -40,6 +40,19 @@ export class DatabaseTextAnalyzerService {
     return totalCharacters;
   }
 
+  async getTotalSentences(): Promise<number> {
+    const sentencesFromDB = await this.prismaService.sample.findMany({
+      select: {
+        sampleText: true,
+      },
+    });
+    let totalSentences = 0;
+    sentencesFromDB.forEach((sentence) => {
+      const sentences = sentence.sampleText.split(/[.!?]+/);
+      totalSentences += sentences.length;
+    });
+    return totalSentences;
+  }
   private countWords(text: string): number {
     return text.split(/\s+/).filter((word) => word !== '').length;
   }
