@@ -48,9 +48,6 @@ Prerequisites: You have to have installed Docker and Docker-compose in your comp
 # unit tests
 - npm run test
 
-
- **N.B**: Please keep in mind, before running `docker compose up` first the value of the `POSTGRES_HOST` env variable should be `postgres` because, inside docker, services communicate with each other with their container name as the hostname like when we'll run `docker compose up`, our `nest-app` service will be connected with `postgres` service through `http://postgres:5433`.
-
  ### Request methods
 
 The request method is the way we distinguish what kind of action our endpoint is being "asked" to perform. For example, `GET` pretty much gives itself. But we also have a few other methods that we use quite often.
@@ -63,9 +60,9 @@ The request method is the way we distinguish what kind of action our endpoint is
 | `PUT`    | Used to replace a whole item (all fields) with new data. |
 | `DELETE` | Used to delete an item.                  |
 
-### Examples From txt File
+### From txt File
 
-Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
+See the below URL link for endpoints:
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
@@ -76,9 +73,9 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 `GET`    | `/api/text-analyzer/long-words`                             | Retrieve number of longest words.                      |
 
 
-### Examples From Database
+### From Database
 
-Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
+See the below URL link for endpoints:
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
@@ -87,3 +84,7 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 `GET`    | `/api/database-text-analyzer/database-get-total-sentances`                             | Retrieve number of sentences.                      |
 `GET`    | `/api/database-text-analyzer/database-get-total-paragraph`                             | Retrieve number of worparagraphds.                      |
 `GET`    | `/api/database-text-analyzer/database-get-longest-words`                             | Retrieve number of longest words.                      |
+
+
+
+ **N.B**: Please keep in mind, before running `docker compose up` first the value of the `POSTGRES_HOST` env variable should be `postgres` because, inside docker, services communicate with each other with their container name as the hostname like when we'll run `docker compose up`, our `nest-app` service will be connected with `postgres` service through `http://postgres:5433`.
