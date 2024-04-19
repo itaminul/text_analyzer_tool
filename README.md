@@ -5,6 +5,10 @@ This is a Text Analyzer Tool repository using NestJS, PostgreSQL, Prisma and Doc
 ## Run the App using Script Command
 
 Prerequisites: You have to have installed Postgres in your machine.
+- I used in the the below version of project run
+- npm version 10.2.5
+- node version 20.10.0
+- nestjs version 10.1.10
 
 - Create a `.env` file at the root and add essential environment variables from `.env.example` file
 - Run `npm install` or `yarn`
