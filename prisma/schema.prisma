@@ -5,18 +5,15 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+
 }
 
 model Sample {
   id           Int       @id @default(autoincrement())
   sampleText   String
-  orgId        Int?
   activeStatus Boolean   @default(true)
-  createdDate  String?
-  createdTime  String?
   createdBy    Int?
   createdAt    DateTime  @default(now())
-  updatedDate  String?
-  updatedTime  String?
   updatedAt    DateTime?
 }
