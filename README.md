@@ -69,11 +69,11 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-`GET`    | `http://localhost:8003/api/text-analyzer/words`                             | Retrieve number of words.                      |
-`GET`    | `http://localhost:8003/api/text-analyzer/characters`                             | Retrieve number of charecter.                      |
-`GET`    | `http://localhost:8003/api/text-analyzer/sentences`                             | Retrieve number of sentences.                      |
-`GET`    | `http://localhost:8003/api/text-analyzer/paragraph`                             | Retrieve number of paragraph.                      |
-`GET`    | `http://localhost:8003/api/text-analyzer/long-words`                             | Retrieve number of longest words.                      |
+`GET`    | `/api/text-analyzer/words`                             | Retrieve number of words.                      |
+`GET`    | `/api/text-analyzer/characters`                             | Retrieve number of charecter.                      |
+`GET`    | `/api/text-analyzer/sentences`                             | Retrieve number of sentences.                      |
+`GET`    | `/api/text-analyzer/paragraph`                             | Retrieve number of paragraph.                      |
+`GET`    | `/api/text-analyzer/long-words`                             | Retrieve number of longest words.                      |
 
 
 ### Examples From Database
@@ -82,8 +82,8 @@ Now that we’ve learned about the anatomy of our endpoints and the different re
 
 | Method   | URL                                      | Description                              |
 | -------- | ---------------------------------------- | ---------------------------------------- |
-`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-words`                             | Retrieve number of words.                      |
-`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-charecter`                             | Retrieve number of charecter.                      |
-`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-sentances`                             | Retrieve number of sentences.                      |
-`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-paragraph`                             | Retrieve number of worparagraphds.                      |
-`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-longest-words`                             | Retrieve number of longest words.                      |
+`GET`    | `/api/database-text-analyzer/database-get-total-words`                             | Retrieve number of words.                      |
+`GET`    | `/api/database-text-analyzer/database-get-total-charecter`                             | Retrieve number of charecter.                      |
+`GET`    | `/api/database-text-analyzer/database-get-total-sentances`                             | Retrieve number of sentences.                      |
+`GET`    | `/api/database-text-analyzer/database-get-total-paragraph`                             | Retrieve number of worparagraphds.                      |
+`GET`    | `/api/database-text-analyzer/database-get-longest-words`                             | Retrieve number of longest words.                      |
