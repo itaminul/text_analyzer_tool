@@ -1,73 +1,89 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Text Analyzer Tool
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a Text Analyzer Tool repository using NestJS, PostgreSQL, Prisma and Docker.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Run the App using Script Command
 
-## Description
+Prerequisites: You have to have installed Postgres in your machine.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Create a `.env` file at the root and add essential environment variables from `.env.example` file
+- Run `npm install` or `yarn`
+- Now to run the app in the Dev Environment run `npm run start:dev` or `yarn start:dev`
+- For production, first build using `npm run build` or `yarn build` and then run `npm start` or `yarn start`
+- Now the server should listen on `http://localhost:8000` based on the port number you set in `.env`
 
-## Installation
+## Run the App using Docker
 
-```bash
-$ npm install
-```
 
-## Running the app
+Prerequisites: You have to have installed Docker and Docker-compose in your computer
 
-```bash
-# development
-$ npm run start
+- Create a `.env` file at the project root and add essential environment variables from `.env.example` file
+- Open any command line tool in your computer like for Windows `Git Bash`, for Linux `Terminal` or `Terminator`, and for Mac `iTerm2`, and so on.
+- Change directory to this project in which location you have for example `cd ~/www/text-analyzer-tool`
+- Now run `docker compose up` or `docker-compose up` if you installed docker compose separately
+- Now the server should listen on `http://localhost:8000` based on the port number you set in `.env`
 
-# watch mode
-$ npm run start:dev
+## How to remove Docker Containers, Images, Volumes and Networks
 
-# production mode
-$ npm run start:prod
-```
+- To delete all the Containers, Images and Volumes: `docker system prune --volumes -af`
+- To delete all the Networks: `docker network prune -f`
+- To delete all containers including its volumes: `docker rm -vf $(docker ps -aq)`
+- To delete all the images: `docker rmi -f $(docker images -aq)`
+- To delete specific Container: `docker rm container_id1, container_id2...`
+- To delete specific Images: `docker rmi image_id1, image_id2...`
+- To delete specific Networks: `docker network rm network_id1, network_id2...`
+- To delete specific Volumes: `docker volume rm volume_id1, volume_id2...`
 
-## Test
 
-```bash
+## List of Modules
+- Text Analyzer From txt File
+- Text Analyzer From Databse 
+
+### Demo Data Insert
+- npm run insert-json-data
+
+
+### Run the tests
+
 # unit tests
-$ npm run test
+- npm run test
 
-# e2e tests
-$ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
-```
+ **N.B**: Please keep in mind, before running `docker compose up` first the value of the `POSTGRES_HOST` env variable should be `postgres` because, inside docker, services communicate with each other with their container name as the hostname like when we'll run `docker compose up`, our `nest-app` service will be connected with `postgres` service through `http://postgres:5433`.
 
-## Support
+ ### Request methods
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+The request method is the way we distinguish what kind of action our endpoint is being "asked" to perform. For example, `GET` pretty much gives itself. But we also have a few other methods that we use quite often.
 
-## Stay in touch
+| Method   | Description                              |
+| -------- | ---------------------------------------- |
+| `GET`    | Used to retrieve a single item or a collection of items. |
+| `POST`   | Used when creating new items e.g. a new user, post, comment etc. |
+| `PATCH`  | Used to update one or more fields on an item e.g. update e-mail of user. |
+| `PUT`    | Used to replace a whole item (all fields) with new data. |
+| `DELETE` | Used to delete an item.                  |
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Examples From txt File
 
-## License
+Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
 
-Nest is [MIT licensed](LICENSE).
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+`GET`    | `http://localhost:8003/api/text-analyzer/words`                             | Retrieve number of words.                      |
+`GET`    | `http://localhost:8003/api/text-analyzer/characters`                             | Retrieve number of charecter.                      |
+`GET`    | `http://localhost:8003/api/text-analyzer/sentences`                             | Retrieve number of sentences.                      |
+`GET`    | `http://localhost:8003/api/text-analyzer/paragraph`                             | Retrieve number of paragraph.                      |
+`GET`    | `http://localhost:8003/api/text-analyzer/long-words`                             | Retrieve number of longest words.                      |
+
+
+### Examples From Database
+
+Now that we’ve learned about the anatomy of our endpoints and the different request methods that we should use, it’s time for some examples:
+
+| Method   | URL                                      | Description                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-words`                             | Retrieve number of words.                      |
+`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-charecter`                             | Retrieve number of charecter.                      |
+`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-sentances`                             | Retrieve number of sentences.                      |
+`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-total-paragraph`                             | Retrieve number of worparagraphds.                      |
+`GET`    | `http://localhost:8003/api/database-text-analyzer/database-get-longest-words`                             | Retrieve number of longest words.                      |
